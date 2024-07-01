@@ -1,10 +1,14 @@
-﻿<!DOCTYPE html>
+﻿@{
+    ViewData["Title"] = "Solar System Explorer";
+}
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solar System Explorer</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/styles.css" asp-append-version="true">
 </head>
 <body>
     <div class="star-field"></div>
@@ -17,12 +21,14 @@
     <main>
         <section id="hero">
             <h2>Explore the Wonders of Our Solar System</h2>
-            <button id="exploreButton" data-url="@Url.Action("StartYourJourney", "Journey")">Start Your Journey</button>
+            <button id="exploreButton" data-url="@Url.Action("StartYourJourney", "SolarSystem")">Start Your Journey</button>
         </section>
     </main>
     <footer>
-        <p>&copy; 2024 Solar System Explorer</p>
+        <p>&copy; @DateTime.Now.Year Solar System Explorer</p>
     </footer>
-    <script src="script.js"></script>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/script.js" asp-append-version="true"></script>
 </body>
 </html>

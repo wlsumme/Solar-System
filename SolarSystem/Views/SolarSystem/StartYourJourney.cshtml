@@ -1,0 +1,112 @@
+﻿@{
+    ViewData["Title"] = "Start Your Journey";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/SolarSystem.styles.css" asp-append-version="true" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="star-field"></div>
+    <header>
+        <h1>Explore the Solar System</h1>
+    </header>
+    <main>
+        <div id="hero">
+            <h2>Our Solar System</h2>
+            <div class="solar-system-gif">
+                <!-- Add any GIF or animation here if needed -->
+            </div>
+            <button id="exploreButton">Explore</button>
+            <div id="planetContainer">
+                <h2>Planets</h2>
+                <ul id="planetList"></ul>
+            </div>
+            <div id="moonContainer" style="display:none;">
+                <h2>Moons</h2>
+                <ul id="moonList"></ul>
+            </div>
+            <div id="loading-planets" style="display: none;">Loading planets...</div>
+            <div id="planets-container"></div>
+            <div id="moons-container" style="display: none;">
+                <h3 id="selected-planet"></h3>
+                <div id="moons-list"></div>
+                <button id="back-to-planets">Back to Planets</button>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Your Name. All rights reserved.</p>
+    </footer>
+
+    <script>
+        $(document).ready(function () {
+            console.log('DOM fully loaded');
+
+            $('#exploreButton').click(function () {
+                console.log('Button clicked');
+                loadPlanets();
+            });
+
+            function loadPlanets() {
+                console.log("Attempting to load planets");
+                $('#loading-planets').show();
+                $.ajax({
+                    url: '@Url.Action("GetPlanets", "SolarSystem")',
+                    type: 'GET',
+                    success: function (planets) {
+                        console.log('Planets received:', planets);
+                        var planetList = $('#planetList');
+                        planetList.empty();
+                        planets.forEach(function (planet) {
+                            planetList.append('<li class="planet-item" data-id="' + planet.id + '">' + planet.englishName + '</li>');
+                        });
+                        $('#planetContainer').show();
+
+                        $('.planet-item').click(function () {
+                            var planetId = $(this).data('id');
+                            loadMoons(planetId);
+                        });
+                    },
+                    error: function (error) {
+                        console.log('Error fetching planets:', error);
+                        $('#planetList').html('<li>Error loading planets. Please try again later.</li>');
+                    },
+                    complete: function () {
+                        $('#loading-planets').hide();
+                    }
+                });
+            }
+            
+
+            function loadMoons(planetId) {
+                console.log(`Loading moons for planet ID: ${planetId}`);
+                $.ajax({
+                    url: '@Url.Action("GetMoons", "SolarSystem")',
+                    type: 'GET',
+                    data: { planetId: planetId },
+                    success: function (moons) {
+                        console.log('Moons received:', moons);
+                        var moonList = $('#moonList');
+                        moonList.empty();
+                        moons.forEach(function (moon) {
+                            moonList.append('<li>' + moon + '</li>');
+                        });
+                        $('#moonContainer').show();
+                    },
+                    error: function (error) {
+                        console.log('Error fetching moons:', error);
+                        $('#moonList').html('<li>Error loading moons. Please try again later.</li>');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
