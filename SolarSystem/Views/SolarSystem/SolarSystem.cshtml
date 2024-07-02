@@ -1,51 +1,71 @@
 ﻿@{
-    ViewData["Title"] = "Start Your Journey";
+    ViewData["Title"] = "Solar System Explorer";
 }
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewData["Title"]</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/SolarSystem.styles.css" asp-append-version="true" />
-</head>
-<body>
-    <div class="star-field"></div>
-    <div class="content-wrapper">
-        <div class="main-content">
-            <header>
-                <h1>Explore the Solar System</h1>
-            </header>
-            <main>
-                <section id="hero">
-                    <h2>Our Solar System</h2>
-                    <div class="solar-system-gif">
-                        <!-- Add any GIF or animation here if needed -->
-                    </div>
-                    <button id="exploreButton" class="btn btn-primary">Explore</button>
-                </section>
-                <section id="exploration-area">
-                    <div id="loading-planets" style="display: none;">Loading planets...</div>
-                    <div id="planets-container">
-                        <h2>Planets</h2>
-                        <ul id="planetList" class="list-unstyled"></ul>
-                    </div>
-                    <div id="moons-container" style="display: none;">
-                        <h2>Moons of <span id="selected-planet"></span></h2>
-                        <ul id="moonList" class="list-unstyled"></ul>
-                        <button id="back-to-planets" class="btn btn-secondary mt-3">Back to Planets</button>
-                    </div>
-                </section>
-            </main>
-            <footer>
-                <p>&copy; 2024 Your Name. All rights reserved.</p>
-            </footer>
+<div class="container">
+    <h1>@ViewData["Title"]</h1>
+    <div class="solar-system">
+        <div id="mercury" class="planet"></div>
+        <div id="venus" class="planet"></div>
+        <div id="earth" class="planet"></div>
+        <div id="mars" class="planet"></div>
+        <div id="jupiter" class="planet"></div>
+        <div id="saturn" class="planet"></div>
+        <div id="uranus" class="planet"></div>
+        <div id="neptune" class="planet"></div>
+    </div>
+
+    <div id="planets-container">
+        <div class="row">
+            <div class="col-md-3 planet-item" data-id="1">
+                <div class="planet-model" id="mercury"></div>
+                <h3>Mercury</h3>
+            </div>
+            <div class="col-md-3 planet-item" data-id="2">
+                <div class="planet-model" id="venus"></div>
+                <h3>Venus</h3>
+            </div>
+            <div class="col-md-3 planet-item" data-id="3">
+                <div class="planet-model" id="earth"></div>
+                <h3>Earth</h3>
+            </div>
+            <div class="col-md-3 planet-item" data-id="4">
+                <div class="planet-model" id="mars"></div>
+                <h3>Mars</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 planet-item" data-id="5">
+                <div class="planet-model" id="jupiter"></div>
+                <h3>Jupiter</h3>
+            </div>
+            <div class="col-md-3 planet-item" data-id="6">
+                <div class="planet-model" id="saturn"></div>
+                <h3>Saturn</h3>
+            </div>
+            <div class="col-md-3 planet-item" data-id="7">
+                <div class="planet-model" id="uranus"></div>
+                <h3>Uranus</h3>
+            </div>
+            <div class="col-md-3 planet-item" data-id="8">
+                <div class="planet-model" id="neptune"></div>
+                <h3>Neptune</h3>
+            </div>
         </div>
     </div>
 
+    <div id="planet-info" class="mt-4">
+        <h2>Planet Information</h2>
+        <p id="planet-description"></p>
+    </div>
+
+    <div id="moons-container" class="mt-4" style="display: none;">
+        <h2>Moons</h2>
+        <ul id="moonList" class="list-unstyled"></ul>
+    </div>
+</div>
+
+@section Scripts {
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="~/js/solarSystem.js" asp-append-version="true"></script>
-</body>
-</html>
+}

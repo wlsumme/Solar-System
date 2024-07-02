@@ -1,89 +1,59 @@
 ﻿$(document).ready(function () {
-    console.log('DOM fully loaded');
+    $('.planet-item').click(function () {
+        var planetId = $(this).data('id');
+        var planetName = $(this).find('h3').text();
+        loadPlanetInfo(planetId, planetName);
+        loadMoons(planetId, planetName);  // Pass both planetId and planetName
+    });
 
-    $('#exploreButton').click(loadPlanets);
-    $('#back-to-planets').click(showPlanets);
-
-    function loadPlanets() {
-        console.log("Attempting to load planets");
-        $('#loading-planets').show();
-        $('#planets-container, #moons-container').hide();
-
+    function loadPlanetInfo(planetId, planetName) {
         $.ajax({
-            url: '/SolarSystem/GetPlanets',
+            url: '/SolarSystem/GetPlanetInfo',
             type: 'GET',
-            success: function (planets) {
-                console.log('Planets received:', planets);
-                renderPlanets(planets);
-                showPlanets();
+            data: { planetId: planetName.toLowerCase() },
+            success: function (info) {
+                $('#planet-description').text(info);
+                $('#planet-info h2').text(planetName + ' Information');
+                $('#planet-info').show();
             },
-            error: function (error) {
-                console.log('Error fetching planets:', error);
-                $('#planetList').html('<li>Error loading planets. Please try again later.</li>');
-            },
-            complete: function () {
-                $('#loading-planets').hide();
+            error: function (xhr, status, error) {
+                console.error("Error loading planet information:", error);
+                $('#planet-description').text('Error loading planet information. Please try again.');
             }
-        });
-    }
-
-    function renderPlanets(planets) {
-        var planetList = $('#planetList');
-        planetList.empty();
-        planets.forEach(function (planet) {
-            planetList.append(`<li class="planet-item" data-id="${planet.id}">${planet.englishName}</li>`);
-        });
-        $('.planet-item').click(function () {
-            var planetId = $(this).data('id');
-            var planetName = $(this).text();
-            loadMoons(planetId, planetName);
         });
     }
 
     function loadMoons(planetId, planetName) {
-        console.log(`Loading moons for planet: ${planetName} (ID: ${planetId})`);
-        $('#loading-planets').show();
-        $('#planets-container, #moons-container').hide();
-
         $.ajax({
             url: '/SolarSystem/GetMoons',
             type: 'GET',
-            data: { planetId: planetId },
+            data: { planetId: planetName.toLowerCase() },
             success: function (moons) {
-                console.log('Moons received:', moons);
-                renderMoons(moons, planetName);
-                showMoons();
+                displayMoons(moons);
             },
-            error: function (error) {
-                console.log('Error fetching moons:', error);
-                $('#moonList').html('<li>Error loading moons. Please try again later.</li>');
-            },
-            complete: function () {
-                $('#loading-planets').hide();
+            error: function (xhr, status, error) {
+                console.error("Error loading moons:", error);
+                $('#moonList').html('<li>Error loading moons. Please try again.</li>');
+                $('#moons-container').show();
             }
         });
     }
 
-    function renderMoons(moons, planetName) {
-        $('#selected-planet').text(planetName);
+    function displayMoons(moons) {
         var moonList = $('#moonList');
         moonList.empty();
-        if (moons.length > 0) {
+        if (moons && moons.length > 0) {
             moons.forEach(function (moon) {
                 moonList.append(`<li>${moon}</li>`);
             });
+            $('#moons-container').show();
         } else {
-            moonList.append('<li>No moons found for this planet.</li>');
+            moonList.html('<li>No moons found for this planet.</li>');
+            $('#moons-container').show();
         }
     }
 
-    function showPlanets() {
-        $('#moons-container').hide();
-        $('#planets-container').show();
-    }
-
-    function showMoons() {
-        $('#planets-container').hide();
-        $('#moons-container').show();
-    }
+    $('#startJourneyButton').click(function () {
+        $('.solar-system').show();
+    });
 });
