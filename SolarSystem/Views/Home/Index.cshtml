@@ -12,21 +12,27 @@
 </head>
 <body>
     <div class="star-field"></div>
-    <header>
-        <h1>Solar System Explorer</h1>
-        <div class="solar-system-gif">
-            <iframe src="https://giphy.com/embed/YqopropuC719C" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
-        </div>
-    </header>
-    <main>
-        <section id="hero">
-            <h2>Explore the Wonders of Our Solar System</h2>
-            <button id="exploreButton" data-url="@Url.Action("StartYourJourney", "SolarSystem")">Start Your Journey</button>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; @DateTime.Now.Year Solar System Explorer</p>
-    </footer>
+    <div class="content-wrapper">
+        <header>
+            <h1>Solar System Explorer</h1>
+        </header>
+        <main>
+            <div class="main-content">
+                <section id="hero">
+                    <h2>Explore the Wonders of Our Solar System</h2>
+                    <div class="solar-system-gif">
+                        <iframe src="https://giphy.com/embed/YqopropuC719C" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+                    </div>
+                    <button id="startJourneyButton" data-url="@Url.Action("Index", "SolarSystem")" onclick="window.location.href=this.getAttribute('data-url')">Start Your Journey</button>
+
+
+                </section>
+            </div>
+        </main>
+        <footer>
+            <p>&copy; @DateTime.Now.Year Solar System Explorer</p>
+        </footer>
+    </div>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/js/script.js" asp-append-version="true"></script>

@@ -1,14 +1,27 @@
-/* Global Styles */
 body {
-    background-color: #000000;
-    color: #ffffff;
-    font-family: 'Arial', sans-serif;
+    font-family: Arial, sans-serif;
+    background-color: #000;
+    color: #fff;
     margin: 0;
     padding: 0;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    align-items: center;
+}
+
+.content-wrapper {
+    position: relative;
+    z-index: 2;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    flex-grow: 1;
 }
 
 /* Star Field Animation */
@@ -19,6 +32,7 @@ body {
     width: 100%;
     height: 100%;
     pointer-events: none;
+    z-index: 1;
     background-image: radial-gradient(6px 6px at 20px 30px, #ffffff, rgba(0,0,0,0)), radial-gradient(5px 5px at 40px 70px, #ffffcc, rgba(0,0,0,0)), radial-gradient(7px 7px at 50px 160px, #ccffff, rgba(0,0,0,0)), radial-gradient(4px 4px at 20px 30px, #ffffff, rgba(0,0,0,0)), radial-gradient(4px 4px at 40px 70px, #ffffff, rgba(0,0,0,0)), radial-gradient(4px 4px at 50px 160px, #ffffff, rgba(0,0,0,0)), radial-gradient(4px 4px at 90px 40px, #ffffff, rgba(0,0,0,0)), radial-gradient(4px 4px at 130px 80px, #ffffff, rgba(0,0,0,0)), radial-gradient(4px 4px at 170px 120px, #ffffff, rgba(0,0,0,0)), radial-gradient(4px 4px at 200px 50px, #ffffff, rgba(0,0,0,0));
     background-size: 250px 250px;
     background-repeat: repeat;
@@ -39,59 +53,28 @@ body {
     }
 }
 
-/* Layout Components */
 header {
     text-align: center;
-    padding: 1px;
-    width: 100%;
+    padding: 20px 0;
 }
 
-main {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    padding: 20px;
-    box-sizing: border-box;
+h1 {
+    font-size: 2.5em;
+    margin: 0;
 }
 
-footer {
-    margin-top: auto;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 1px;
-    width: 100%;
-    box-sizing: border-box;
-    text-align: left;
-    font-size: 0.8em;
-}
-
-/* Hero Section */
 #hero {
     text-align: center;
-    max-width: 800px;
-    width: 100%;
-}
-
-h1, h2 {
-    margin-bottom: 1px;
-}
-
-h2 {
-    font-size: 1.8em;
-    margin-top: 3px;
-    margin-bottom: 3px;
 }
 
 .solar-system-gif {
+    width: 100%;
+    max-width: 500px;
     margin: 20px auto;
-    width: 60vw;
-    max-width: 400px;
-    aspect-ratio: 1 / 1;
-    overflow: hidden;
     border-radius: 10px;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    overflow: hidden;
+    aspect-ratio: 1 / 1;
+    pointer-events: none;
 }
 
     .solar-system-gif iframe {
@@ -101,84 +84,42 @@ h2 {
         pointer-events: none;
     }
 
-/* Buttons */
-#exploreButton {
+#startJourneyButton {
     background-color: #4CAF50;
     color: white;
+    border: none;
     padding: 15px 30px;
     font-size: 1.2em;
-    border: none;
-    border-radius: 5px;
     cursor: pointer;
+    border-radius: 5px;
     transition: background-color 0.3s, transform 0.2s;
+    position: relative;
+    z-index: 9999;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
-    #exploreButton:hover {
+    #startJourneyButton:hover {
         background-color: #45a049;
         transform: scale(1.05);
     }
 
-.planet-button {
-    display: inline-block;
-    margin: 10px;
-    padding: 15px 25px;
-    background-color: #333;
-    color: #fff;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-size: 1em;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-    .planet-button:hover {
-        background-color: #555;
-        transform: scale(1.05);
-        box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
-    }
-
-#back-to-planets {
-    margin-top: 15px;
-    background-color: #333;
+#exploreButton {
+    background-color: #4CAF50;
     color: white;
-    padding: 10px 20px;
     border: none;
-    border-radius: 5px;
+    padding: 15px 30px;
+    font-size: 1.2em;
     cursor: pointer;
+    border-radius: 5px;
     transition: background-color 0.3s;
 }
 
-    #back-to-planets:hover {
-        background-color: #555;
+    #exploreButton:hover {
+        background-color: #45a049;
     }
 
-/* Planets and Moons Containers */
-#planets-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-#moons-container {
-    background-color: rgba(0, 0, 0, 0.7);
-    border-radius: 10px;
-    padding: 20px;
-    margin-top: 20px;
-    max-width: 600px;
-    width: 90%;
-}
-
-#moons-list p {
-    margin: 5px 0;
-    font-size: 1.1em;
-}
-
-/* Loading Indicator */
-#loading-planets {
-    font-size: 1.2em;
-    color: #4CAF50;
-    margin: 20px 0;
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: rgba(0, 0, 0, 0.5);
 }

@@ -25,8 +25,12 @@ namespace SolarSystem.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            return View("SolarSystem");
+
+
         }
+
+
 
         public IActionResult StartYourJourney()
         {
