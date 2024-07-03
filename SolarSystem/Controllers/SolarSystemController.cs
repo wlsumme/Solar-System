@@ -137,10 +137,6 @@ namespace SolarSystem.Controllers
             public Mass mass { get; set; }
         }
 
-        public class Mass
-        {
-            public double massValue { get; set; }
-            public int massExponent { get; set; }
-        }
+        
     }
 }

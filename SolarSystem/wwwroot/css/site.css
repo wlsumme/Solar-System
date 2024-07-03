@@ -1,241 +1,34 @@
-.planet-model {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    margin: 20px auto;
-    box-shadow: inset 16px 0 40px 3px rgb(0, 0, 0), inset -3px 0 6px 2px rgba(255, 255, 255, 0.2);
-    animation: rotate 20s infinite linear;
-}
-
-@keyframes rotate {
-    from {
-        background-position-x: 0px;
-    }
-
-    to {
-        background-position-x: 200px;
-    }
-}
-
-.planet {
-    border-radius: 50%;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-}
-
-#mercury {
-    width: 20px;
-    height: 20px;
-    background-color: #8c8c8c;
-}
-
-#venus {
-    width: 30px;
-    height: 30px;
-    background-color: #e6e6e6;
-}
-
-#earth {
-    width: 35px;
-    height: 35px;
-    background-color: #4c9bdb;
-}
-
-#mars {
-    width: 25px;
-    height: 25px;
-    background-color: #c1440e;
-}
-
-#jupiter {
-    width: 80px;
-    height: 80px;
-    background-color: #d8ca9d;
-}
-
-#saturn {
-    width: 70px;
-    height: 70px;
-    background-color: #fae5bf;
-}
-
-#uranus {
-    width: 50px;
-    height: 50px;
-    background-color: #d1e7e7;
-}
-
-#neptune {
-    width: 45px;
-    height: 45px;
-    background-color: #5b5ddf;
-}
-}
-
-
-body {
-    font-family: Arial, sans-serif;
-    background-color: #000;
-    color: #fff;
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-
-.content-wrapper {
-    position: relative;
-    z-index: 2;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-}
-
-.main-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-    flex-grow: 1;
-}
-
-/* Star Field Animation */
-.star-field {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 1;
-    background-image: radial-gradient(6px 6px at 20px 30px, #ffffff, rgba(0,0,0,0)), radial-gradient(5px 5px at 40px 70px, #ffffcc, rgba(0,0,0,0)), radial-gradient(7px 7px at 50px 160px, #ccffff, rgba(0,0,0,0)), radial-gradient(4px 4px at 20px 30px, #ffffff, rgba(0,0,0,0)), radial-gradient(4px 4px at 40px 70px, #ffffff, rgba(0,0,0,0)), radial-gradient(4px 4px at 50px 160px, #ffffff, rgba(0,0,0,0)), radial-gradient(4px 4px at 90px 40px, #ffffff, rgba(0,0,0,0)), radial-gradient(4px 4px at 130px 80px, #ffffff, rgba(0,0,0,0)), radial-gradient(4px 4px at 170px 120px, #ffffff, rgba(0,0,0,0)), radial-gradient(4px 4px at 200px 50px, #ffffff, rgba(0,0,0,0));
-    background-size: 250px 250px;
-    background-repeat: repeat;
-    animation: twinkle 2s infinite;
-}
-
-@keyframes twinkle {
-    0% {
-        opacity: 0.5;
-    }
-
-    50% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 0.5;
-    }
-}
-
-header {
-    text-align: center;
-    padding: 20px 0;
-}
-
-h1 {
-    font-size: 2.5em;
-    margin: 0;
-}
-
-#hero {
-    text-align: center;
-}
-
-.solar-system-gif {
-    width: 100%;
-    max-width: 500px;
-    margin: 20px auto;
-    border-radius: 10px;
-    overflow: hidden;
-    aspect-ratio: 1 / 1;
-    pointer-events: none;
-}
-
-    .solar-system-gif iframe {
-        width: 100%;
-        height: 100%;
-        border: none;
-        pointer-events: none;
-    }
-
-#startJourneyButton {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 15px 30px;
-    font-size: 1.2em;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s, transform 0.2s;
-    position: relative;
-    z-index: 9999;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-}
-
-    #startJourneyButton:hover {
-        background-color: #45a049;
-        transform: scale(1.05);
-    }
-
-#exploreButton {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 15px 30px;
-    font-size: 1.2em;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-}
-
-    #exploreButton:hover {
-        background-color: #45a049;
-    }
-
-footer {
-    text-align: center;
-    padding: 20px 0;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
-.planet-model {
-    /* ... existing styles ... */
-    animation: rotate 20s infinite linear;
-}
-
-#mercury {
-    animation-duration: 10s;
-}
-
-#venus {
-    animation-duration: 15s;
-}
-
-#earth {
-    animation-duration: 20s;
-}
 body, html {
     height: 100%;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
-}
-
-body {
-    font-family: Arial, sans-serif;
     background-color: #000;
     color: #fff;
-    display: flex;
-    flex-direction: column;
+    font-family: Arial, sans-serif;
 }
+
+.solar-system-gif {
+    width: 100%;
+    max-width: 500px;
+    margin: 20px auto;
+    border-radius: 10px;
+    overflow: hidden;
+    aspect-ratio: 1 / 1;
+    pointer-events: none;
+}
+
+    .solar-system-gif iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+        pointer-events: none;
+    }
 
 .content-wrapper {
     position: relative;
     z-index: 2;
-    flex-grow: 1;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
@@ -263,180 +56,110 @@ body {
 }
 
 @keyframes twinkle {
-    0% {
+    0%, 100% {
         opacity: 0.5;
     }
 
     50% {
         opacity: 1;
     }
-
-    100% {
-        opacity: 0.5;
-    }
-}
-
-header {
-    text-align: center;
-    padding: 20px 0;
 }
 
 h1 {
     font-size: 2.5em;
-    margin: 0;
-}
-
-#hero {
+    margin: 0 0 20px;
     text-align: center;
 }
 
-.solar-system-gif {
-    width: 100%;
-    max-width: 500px;
-    margin: 20px auto;
-    border-radius: 10px;
-    overflow: hidden;
-    aspect-ratio: 1 / 1;
-    pointer-events: none;
+#planets-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
 }
 
-    .solar-system-gif iframe {
-        width: 100%;
-        height: 100%;
-        border: none;
-        pointer-events: none;
-    }
+.planet-item {
+    flex: 0 1 calc(25% - 20px);
+    max-width: 250px;
+    text-align: center;
 
-#startJourneyButton {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
+}
+
+.planet-gif-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%;
+    overflow: hidden;
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+.planet-gif {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.5);
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+h3 {
+    margin-top: 10px;
+    font-size: 1.2em;
+}
+
+/* Specific adjustments for planets that need more zooming */
+#jupiter .planet-gif,
+#saturn .planet-gif,
+#uranus .planet-gif,
+#neptune .planet-gif {
+    transform: translate(-50%, -50%) scale(1.8);
+}
+
+#saturn .planet-gif {
+    transform: translate(-50%, -50%) scale(2);
+}
+
+#startJourneyButton, #exploreButton {
+    display: block;
+    margin: 20px auto;
     padding: 15px 30px;
     font-size: 1.2em;
     cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
     border-radius: 5px;
     transition: background-color 0.3s, transform 0.2s;
-    position: relative;
-    z-index: 9999;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
-    #startJourneyButton:hover {
+    #startJourneyButton:hover, #exploreButton:hover {
         background-color: #45a049;
         transform: scale(1.05);
     }
 
-#exploreButton {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 15px 30px;
-    font-size: 1.2em;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s;
+#planet-info, #moons-container {
+    margin-top: 30px;
+    text-align: center;
 }
-
-    #exploreButton:hover {
-        background-color: #45a049;
-    }
 
 footer {
     text-align: center;
     padding: 20px 0;
     background-color: rgba(0, 0, 0, 0.5);
+    margin-top: auto;
 }
 
-.planet-model {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    margin: 20px auto;
-    box-shadow: inset 16px 0 40px 3px rgb(0, 0, 0), inset -3px 0 6px 2px rgba(255, 255, 255, 0.2);
-    animation: rotate 20s infinite linear;
-}
-
-@keyframes rotate {
-    from {
-        background-position-x: 0px;
-    }
-
-    to {
-        background-position-x: 200px;
+@media (max-width: 768px) {
+    .planet-item {
+        flex: 0 1 calc(50% - 20px);
     }
 }
 
-#mercury {
-    width: 20px;
-    height: 20px;
-    background-color: #8c8c8c;
-    animation-duration: 10s;
-}
-
-#venus {
-    width: 30px;
-    height: 30px;
-    background-color: #e6e6e6;
-    animation-duration: 15s;
-}
-
-#earth {
-    width: 35px;
-    height: 35px;
-    background-color: #4c9bdb;
-    animation-duration: 20s;
-}
-
-#mars {
-    width: 25px;
-    height: 25px;
-    background-color: #c1440e;
-    animation-duration: 25s;
-}
-
-#jupiter {
-    width: 80px;
-    height: 80px;
-    background-color: #d8ca9d;
-    animation-duration: 30s;
-}
-
-#saturn {
-    width: 70px;
-    height: 70px;
-    background-color: #fae5bf;
-    animation-duration: 35s;
-}
-
-#uranus {
-    width: 50px;
-    height: 50px;
-    background-color: #d1e7e7;
-    animation-duration: 40s;
-}
-
-#neptune {
-    width: 45px;
-    height: 45px;
-    background-color: #5b5ddf;
-    animation-duration: 45s;
-}
-#mars {
-    animation-duration: 25s;
-}
-
-#jupiter {
-    animation-duration: 30s;
-}
-
-#saturn {
-    animation-duration: 35s;
-}
-
-#uranus {
-    animation-duration: 40s;
-}
-
-#neptune {
-    animation-duration: 45s;
+@media (max-width: 480px) {
+    .planet-item {
+        flex: 0 1 100%;
+    }
 }

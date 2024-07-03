@@ -2,70 +2,70 @@
     ViewData["Title"] = "Solar System Explorer";
 }
 
-<div class="container">
-    <h1>@ViewData["Title"]</h1>
-    <div class="solar-system">
-        <div id="mercury" class="planet"></div>
-        <div id="venus" class="planet"></div>
-        <div id="earth" class="planet"></div>
-        <div id="mars" class="planet"></div>
-        <div id="jupiter" class="planet"></div>
-        <div id="saturn" class="planet"></div>
-        <div id="uranus" class="planet"></div>
-        <div id="neptune" class="planet"></div>
-    </div>
+<div class="content-wrapper">
+    <div class="star-field"></div>
 
-    <div id="planets-container">
-        <div class="row">
-            <div class="col-md-3 planet-item" data-id="1">
-                <div class="planet-model" id="mercury"></div>
-                <h3>Mercury</h3>
+    <div class="main-content">
+        <h1>@ViewData["Title"]</h1>
+
+        <div id="planets-container">
+            <div class="row">
+                <div class="col-md-3 planet-item" data-id="1">
+                    <div class="planet-gif-container" id="mercury">
+                        <iframe src="https://giphy.com/embed/l0HlO4V8iCRME3i0g" frameBorder="0" class="planet-gif" allowFullScreen></iframe>
+                    </div>
+                    <h3>Mercury</h3>
+                </div>
+                <div class="col-md-3 planet-item" data-id="2">
+                    <div class="planet-gif-container" id="venus">
+                        <iframe src="https://giphy.com/embed/l0MYB89UFsVqLY5oc" frameBorder="0" class="planet-gif" allowFullScreen></iframe>
+                    </div>
+                    <h3>Venus</h3>
+                </div>
+                <div class="col-md-3 planet-item" data-id="3">
+                    <div class="planet-gif-container" id="earth">
+                        <iframe src="https://giphy.com/embed/3o7WIB00yXujVt4WEo" frameBorder="0" class="planet-gif" allowFullScreen></iframe>
+                    </div>
+                    <h3>Earth</h3>
+                </div>
+                <div class="col-md-3 planet-item" data-id="4">
+                    <div class="planet-gif-container" id="mars">
+                        <iframe src="https://giphy.com/embed/Wkcw6SzOtaSxG" frameBorder="0" class="planet-gif" allowFullScreen></iframe>
+                    </div>
+                    <h3>Mars</h3>
+                </div>
             </div>
-            <div class="col-md-3 planet-item" data-id="2">
-                <div class="planet-model" id="venus"></div>
-                <h3>Venus</h3>
-            </div>
-            <div class="col-md-3 planet-item" data-id="3">
-                <div class="planet-model" id="earth"></div>
-                <h3>Earth</h3>
-            </div>
-            <div class="col-md-3 planet-item" data-id="4">
-                <div class="planet-model" id="mars"></div>
-                <h3>Mars</h3>
+            <div class="row">
+                <div class="col-md-3 planet-item" data-id="5">
+                    <div class="planet-gif-container" id="jupiter">
+                        <iframe src="https://giphy.com/embed/s2uampOAMWksU" frameBorder="0" class="planet-gif" allowFullScreen></iframe>
+                    </div>
+                    <h3>Jupiter</h3>
+                </div>
+                <div class="col-md-3 planet-item" data-id="6">
+                    <div class="planet-gif-container" id="saturn">
+                        <iframe src="https://giphy.com/embed/l0MYRaQ9utfynYpxe" frameBorder="0" class="planet-gif" allowFullScreen></iframe>
+                    </div>
+                    <h3>Saturn</h3>
+                </div>
+                <div class="col-md-3 planet-item" data-id="7">
+                    <div class="planet-gif-container" id="uranus">
+                        <iframe src="https://giphy.com/embed/KYjlYCFauH49W" frameBorder="0" class="planet-gif" allowFullScreen></iframe>
+                    </div>
+                    <h3>Uranus</h3>
+                </div>
+                <div class="col-md-3 planet-item" data-id="8">
+                    <div class="planet-gif-container" id="neptune">
+                        <iframe src="https://giphy.com/embed/U3tFXa9GHZAKSU0dfy" frameBorder="0" class="planet-gif" allowFullScreen></iframe>
+                    </div>
+                    <h3>Neptune</h3>
+                </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-3 planet-item" data-id="5">
-                <div class="planet-model" id="jupiter"></div>
-                <h3>Jupiter</h3>
-            </div>
-            <div class="col-md-3 planet-item" data-id="6">
-                <div class="planet-model" id="saturn"></div>
-                <h3>Saturn</h3>
-            </div>
-            <div class="col-md-3 planet-item" data-id="7">
-                <div class="planet-model" id="uranus"></div>
-                <h3>Uranus</h3>
-            </div>
-            <div class="col-md-3 planet-item" data-id="8">
-                <div class="planet-model" id="neptune"></div>
-                <h3>Neptune</h3>
-            </div>
+
+        <div id="planet-info" class="mt-4">
+            <h2>Planet Information</h2>
+            <p id="planet-description"></p>
         </div>
-    </div>
 
-    <div id="planet-info" class="mt-4">
-        <h2>Planet Information</h2>
-        <p id="planet-description"></p>
-    </div>
-
-    <div id="moons-container" class="mt-4" style="display: none;">
-        <h2>Moons</h2>
-        <ul id="moonList" class="list-unstyled"></ul>
-    </div>
-</div>
-
-@section Scripts {
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="~/js/solarSystem.js" asp-append-version="true"></script>
-}
+        <div id=" m
