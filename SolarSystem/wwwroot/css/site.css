@@ -8,6 +8,20 @@ body, html {
     font-family: Arial, sans-serif;
 }
 
+.content-wrapper {
+    position: relative;
+    z-index: 2;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    flex-grow: 1;
+}
 .solar-system-gif {
     width: 100%;
     max-width: 500px;
@@ -24,21 +38,6 @@ body, html {
         border: none;
         pointer-events: none;
     }
-
-.content-wrapper {
-    position: relative;
-    z-index: 2;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-
-.main-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-    flex-grow: 1;
-}
 
 /* Star Field Animation */
 .star-field {
@@ -73,52 +72,78 @@ h1 {
 
 #planets-container {
     display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
     flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
+    gap: 10px;
+    padding: 20px 0;
 }
 
 .planet-item {
-    flex: 0 1 calc(25% - 20px);
-    max-width: 250px;
     text-align: center;
-
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .planet-gif-container {
     position: relative;
-    width: 100%;
-    padding-bottom: 100%;
     overflow: hidden;
     border-radius: 50%;
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
 }
 
 .planet-gif {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(1.5);
     width: 100%;
     height: 100%;
     border-radius: 50%;
+    pointer-events: none;
+}
+
+/* Planet-specific size adjustments */
+#mercury .planet-gif-container {
+    width: 20px;
+    height: 20px;
+}
+
+#venus .planet-gif-container {
+    width: 40px;
+    height: 40px;
+}
+
+#earth .planet-gif-container {
+    width: 42px;
+    height: 42px;
+}
+
+#mars .planet-gif-container {
+    width: 22px;
+    height: 22px;
+}
+
+#jupiter .planet-gif-container {
+    width: 150px;
+    height: 150px;
+}
+
+#saturn .planet-gif-container {
+    width: 120px;
+    height: 120px;
+}
+
+#uranus .planet-gif-container {
+    width: 80px;
+    height: 80px;
+}
+
+#neptune .planet-gif-container {
+    width: 78px;
+    height: 78px;
 }
 
 h3 {
     margin-top: 10px;
-    font-size: 1.2em;
-}
-
-/* Specific adjustments for planets that need more zooming */
-#jupiter .planet-gif,
-#saturn .planet-gif,
-#uranus .planet-gif,
-#neptune .planet-gif {
-    transform: translate(-50%, -50%) scale(1.8);
-}
-
-#saturn .planet-gif {
-    transform: translate(-50%, -50%) scale(2);
+    font-size: 1em;
 }
 
 #startJourneyButton, #exploreButton {
@@ -153,13 +178,12 @@ footer {
 }
 
 @media (max-width: 768px) {
-    .planet-item {
-        flex: 0 1 calc(50% - 20px);
+    #planets-container {
+        flex-direction: column;
+        align-items: center;
     }
-}
 
-@media (max-width: 480px) {
     .planet-item {
-        flex: 0 1 100%;
+        margin-bottom: 20px;
     }
 }
