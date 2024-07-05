@@ -9,49 +9,49 @@
         <h1>@ViewData["Title"]</h1>
 
         <div id="planets-container">
-            <div class="planet-item" id="mercury">
+            <div class="planet-item" id="mercury" data-id="mercury">
                 <div class="planet-gif-container">
                     <iframe src="https://giphy.com/embed/l0HlO4V8iCRME3i0g" class="planet-gif" frameBorder="0" allowFullScreen></iframe>
                 </div>
                 <h3>Mercury</h3>
             </div>
-            <div class="planet-item" id="venus">
+            <div class="planet-item" id="venus" data-id="venus">
                 <div class="planet-gif-container">
                     <iframe src="https://giphy.com/embed/l0MYB89UFsVqLY5oc" class="planet-gif" frameBorder="0" allowFullScreen></iframe>
                 </div>
                 <h3>Venus</h3>
             </div>
-            <div class="planet-item" id="earth">
+            <div class="planet-item" id="earth" data-id="earth">
                 <div class="planet-gif-container">
-                    <iframe src="https://giphy.com/embed/3o7WIB00yXujVt4WEo" class="planet-gif" frameBorder="0" allowFullScreen></iframe>
+                    <iframe src="https://giphy.com/embed/mf8UbIDew7e8g" class="planet-gif" frameBorder="0" allowFullScreen></iframe>
                 </div>
                 <h3>Earth</h3>
             </div>
-            <div class="planet-item" id="mars">
+            <div class="planet-item" id="mars" data-id="mars">
                 <div class="planet-gif-container">
                     <iframe src="https://giphy.com/embed/Wkcw6SzOtaSxG" class="planet-gif" frameBorder="0" allowFullScreen></iframe>
                 </div>
                 <h3>Mars</h3>
             </div>
-            <div class="planet-item" id="jupiter">
+            <div class="planet-item" id="jupiter" data-id="jupiter">
                 <div class="planet-gif-container">
                     <iframe src="https://giphy.com/embed/s2uampOAMWksU" class="planet-gif" frameBorder="0" allowFullScreen></iframe>
                 </div>
                 <h3>Jupiter</h3>
             </div>
-            <div class="planet-item" id="saturn">
+            <div class="planet-item" id="saturn" data-id="saturn">
                 <div class="planet-gif-container">
                     <iframe src="https://giphy.com/embed/l0MYRaQ9utfynYpxe" class="planet-gif" frameBorder="0" allowFullScreen></iframe>
                 </div>
                 <h3>Saturn</h3>
             </div>
-            <div class="planet-item" id="uranus">
+            <div class="planet-item" id="uranus" data-id="uranus">
                 <div class="planet-gif-container">
-                    <iframe src="https://giphy.com/embed/KYjlYCFauH49W" class="planet-gif" frameBorder="0" allowFullScreen></iframe>
+                    <iframe src="https://giphy.com/embed/78YhcQShgK45HmeL7U" class="planet-gif" frameBorder="0" allowFullScreen></iframe>
                 </div>
                 <h3>Uranus</h3>
             </div>
-            <div class="planet-item" id="neptune">
+            <div class="planet-item" id="neptune" data-id="neptune">
                 <div class="planet-gif-container">
                     <iframe src="https://giphy.com/embed/U3tFXa9GHZAKSU0dfy" class="planet-gif" frameBorder="0" allowFullScreen></iframe>
                 </div>
@@ -59,13 +59,21 @@
             </div>
         </div>
 
-        <button id="startJourneyButton">Start Journey</button>
+        
 
-        <div id="planet-info"></div>
-        <div id="moons-container"></div>
+        <div id="planet-info" style="display: none;">
+            <h2></h2>
+            <p id="planet-description"></p>
+        </div>
+
+        <div id="moons-container" style="display: none;">
+            <h2></h2>
+            <ul id="moonList"></ul>
+        </div>
     </main>
 </div>
 
-<footer>
-    <p>© 2024 Solar System Explorer</p>
-</footer>
+@section Scripts {
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/solarSystem.js"></script>
+}

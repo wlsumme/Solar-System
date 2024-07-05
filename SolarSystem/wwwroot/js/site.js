@@ -1,9 +1,19 @@
 ﻿$(document).ready(function () {
+    $('.planet-item').hover(
+        function () {
+            var planetId = $(this).data('id');
+            var planetName = $(this).find('h3').text();
+            loadPlanetInfo(planetId, planetName);
+        },
+        function () {
+            $('#planet-info').hide();
+        }
+    );
+
     $('.planet-item').click(function () {
         var planetId = $(this).data('id');
         var planetName = $(this).find('h3').text();
-        loadPlanetInfo(planetId, planetName);
-        loadMoons(planetId, planetName);  // Pass both planetId and planetName
+        loadMoons(planetId, planetName);
     });
 
     function loadPlanetInfo(planetId, planetName) {
@@ -29,7 +39,7 @@
             type: 'GET',
             data: { planetId: planetName.toLowerCase() },
             success: function (moons) {
-                displayMoons(moons);
+                displayMoons(moons, planetName);
             },
             error: function (xhr, status, error) {
                 console.error("Error loading moons:", error);
@@ -39,18 +49,18 @@
         });
     }
 
-    function displayMoons(moons) {
+    function displayMoons(moons, planetName) {
         var moonList = $('#moonList');
         moonList.empty();
+        $('#moons-container h2').text(planetName + ' Moons');
         if (moons && moons.length > 0) {
             moons.forEach(function (moon) {
                 moonList.append(`<li>${moon}</li>`);
             });
-            $('#moons-container').show();
         } else {
             moonList.html('<li>No moons found for this planet.</li>');
-            $('#moons-container').show();
         }
+        $('#moons-container').show();
     }
 
     $('#startJourneyButton').click(function () {
