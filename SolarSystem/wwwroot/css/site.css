@@ -7,6 +7,7 @@ body, html {
     color: #fff;
     font-family: Arial, sans-serif;
 }
+/*Sets basic styes for entire page. Font, text colour, and background*/
 
 .content-wrapper {
     position: relative;
@@ -15,6 +16,7 @@ body, html {
     display: flex;
     flex-direction: column;
 }
+/*Helps the page content fit*/
 
 .main-content {
     max-width: 1200px;
@@ -22,6 +24,7 @@ body, html {
     padding: 20px;
     flex-grow: 1;
 }
+/*Additional content fitting and adds padding*/
 .solar-system-gif {
     width: 100%;
     max-width: 500px;
@@ -31,6 +34,7 @@ body, html {
     aspect-ratio: 1 / 1;
     pointer-events: none;
 }
+/*Builds a container for the solar system gif*/
 
     .solar-system-gif iframe {
         width: 100%;
@@ -38,6 +42,7 @@ body, html {
         border: none;
         pointer-events: none;
     }
+/*iframe does additional fitting and takes away the ability to interact with the gif*/
 
 .star-field {
     position: fixed;
@@ -47,9 +52,13 @@ body, html {
     height: 100%;
     pointer-events: none;
     z-index: -1;
+/*places star field behind the other content*/
     background-image: radial-gradient(6px 6px at 20px 30px, #ffffff, rgba(0,0,0,0)), radial-gradient(5px 5px at 40px 70px, #ffffcc, rgba(0,0,0,0)), radial-gradient(7px 7px at 50px 160px, #ccffff, rgba(0,0,0,0)), radial-gradient(4px 4px at 20px 30px, #ffffff, rgba(0,0,0,0)), radial-gradient(4px 4px at 40px 70px, #ffffff, rgba(0,0,0,0)), radial-gradient(4px 4px at 50px 160px, #ffffff, rgba(0,0,0,0)), radial-gradient(4px 4px at 90px 40px, #ffffff, rgba(0,0,0,0)), radial-gradient(4px 4px at 130px 80px, #ffffff, rgba(0,0,0,0)), radial-gradient(4px 4px at 170px 120px, #ffffff, rgba(0,0,0,0)), radial-gradient(4px 4px at 200px 50px, #ffffff, rgba(0,0,0,0));
+/*creates 10 dots in a tile shape. rgba 0, 0, 0, 0 gives a fuzzy edge. adds some soft colors.  */
     background-size: 250px 250px;
+/*helps size the starry looking tile*/
     background-repeat: repeat;
+/*repeats tile to fill page*/
     animation: twinkle 2s infinite;
 }
 
@@ -61,6 +70,7 @@ body, html {
     50% {
         opacity: 1;
     }
+/*defines when and how much to change during the animation*/
 }
 
 h1 {
@@ -73,6 +83,10 @@ h2 {
     text-align:center;
 }
 
+h3 {
+    margin-top: 10px;
+    font-size: 1em;
+}
 #planets-container {
     display: flex;
     justify-content: space-around;
@@ -81,6 +95,7 @@ h2 {
     gap: 10px;
     padding: 20px 0;
 }
+/*helps diplay the planets in a horizontal line*/
 
 .planet-item {
     text-align: center;
@@ -88,6 +103,7 @@ h2 {
     flex-direction: column;
     align-items: center;
 }
+/*help line up the planets content like its name*/
 
 #planets-container {
     display: flex;
@@ -97,6 +113,7 @@ h2 {
     gap: 20px; 
     padding: 20px 0;
 }
+/*this helps with sizing and padding of the planets*/
 
 .planet-item {
     text-align: center;
@@ -198,12 +215,8 @@ h2 {
 
 
 
-h3 {
-    margin-top: 10px;
-    font-size: 1em;
-}
 
-#startJourneyButton, #exploreButton {
+#startJourneyButton {
     display: block;
     margin: 20px auto;
     padding: 15px 30px;
@@ -217,7 +230,7 @@ h3 {
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
-    #startJourneyButton:hover, #exploreButton:hover {
+    #startJourneyButton:hover {
         background-color: #45a049;
         transform: scale(1.05);
     }
@@ -226,6 +239,7 @@ h3 {
     margin-top: 30px;
     text-align: center;
 }
+/*defines where the api info will be displayed*/
 
 footer {
     text-align: center;
@@ -234,13 +248,7 @@ footer {
     margin-top: auto;
 }
 
-@media (max-width: 768px) {
-    #planets-container {
-        flex-direction: column;
-        align-items: center;
-    }
 
-    .planet-item {
-        margin-bottom: 20px;
-    }
-}
+
+
+
