@@ -1,6 +1,4 @@
-﻿using Microsoft.Extensions.Logging;
-using System.Drawing;
-using System.Reflection;
+﻿
 
 namespace SolarSystem.Models.Planets
 {

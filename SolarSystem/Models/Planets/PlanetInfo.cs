@@ -1,4 +1,4 @@
-﻿using static SolarSystem.Controllers.SolarSystemController;
+﻿
 
 namespace SolarSystem.Models.Planets
 {

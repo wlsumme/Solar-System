@@ -1,6 +1,5 @@
 ﻿using Newtonsoft.Json;
-using SolarSystem.Controllers;
-using System.Collections.Generic;
+
 
 
 namespace SolarSystem.Models.Planets

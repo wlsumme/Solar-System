@@ -1,8 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
-using System.Net.Http;
-using System.Threading.Tasks;
-using System.Linq;
 using Newtonsoft.Json.Linq;
 
 namespace SolarSystem.Controllers
